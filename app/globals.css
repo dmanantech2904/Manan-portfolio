@@ -1,0 +1,147 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --green: #123d33;
+  --cream: #f3eadb;
+  --gold: #c3a268;
+  --ink: #17251f;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html {
+  background: var(--green);
+  scroll-behavior: auto;
+}
+body {
+  background: var(--cream);
+  color: var(--ink);
+  font-family: "DM Sans Variable", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+::selection {
+  background: var(--gold);
+  color: var(--green);
+}
+
+/* Lenis recommended styles */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-stopped,
+html.is-loading {
+  overflow: hidden;
+}
+
+/* Focus */
+:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+/* ---------- Pre-animation states (only when JS + motion allowed) ---------- */
+html.js [data-fade] {
+  opacity: 0;
+}
+html.js [data-intro] {
+  opacity: 0;
+}
+html.js [data-clip] {
+  clip-path: inset(0 0 100% 0);
+}
+html.js [data-rule] {
+  transform: scaleX(0);
+  transform-origin: left center;
+}
+html.js .w-in {
+  visibility: hidden;
+}
+
+@layer components {
+  .display {
+    @apply font-display uppercase leading-[0.88] tracking-[0.005em];
+  }
+  .eyebrow {
+    @apply font-sans text-[0.72rem] font-medium uppercase tracking-[0.28em];
+  }
+  .serif-accent {
+    @apply font-serif italic;
+  }
+  .container-x {
+    @apply mx-auto w-full max-w-[1500px] px-5 sm:px-8 lg:px-14;
+  }
+  .link-line {
+    @apply relative inline-block;
+  }
+  .link-line::after {
+    content: "";
+    @apply absolute -bottom-1 left-0 h-px w-full origin-right scale-x-0 bg-current transition-transform duration-500 ease-expo;
+  }
+  .link-line:hover::after,
+  .link-line:focus-visible::after {
+    @apply origin-left scale-x-100;
+  }
+}
+
+/* Scroll indicator */
+@keyframes scroll-line {
+  0% {
+    transform: translateY(-100%);
+  }
+  60%,
+  100% {
+    transform: translateY(100%);
+  }
+}
+.scroll-line::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--gold);
+  animation: scroll-line 2.2s var(--ease) infinite;
+}
+
+/* Custom cursor */
+html.has-cursor,
+html.has-cursor a,
+html.has-cursor button,
+html.has-cursor [data-cursor] {
+  cursor: none;
+}
+
+/* Lightbox */
+dialog.lightbox {
+  background: #0d2e26;
+  max-width: none;
+  max-height: none;
+  width: 100vw;
+  height: 100dvh;
+  padding: 0;
+  border: 0;
+  color: var(--cream);
+}
+dialog.lightbox::backdrop {
+  background: rgba(10, 30, 25, 0.96);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .scroll-line::after {
+    animation: none;
+    transform: none;
+  }
+}

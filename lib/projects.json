@@ -1,0 +1,58 @@
+{
+  "images": [
+    { "slug": "portrait", "dir": "images", "use": "Hero portrait (arch frame). Portrait orientation works best." },
+    { "slug": "about", "dir": "images", "use": "About section portrait (full-length photo)." }
+  ],
+  "categories": [
+    {
+      "id": "brand",
+      "title": "Logo & Brand Identity",
+      "projects": [
+        { "slug": "logo-collection", "title": "Logo Collection" },
+        { "slug": "dice-panel", "title": "Dice Panel" },
+        { "slug": "150-year-celebration", "title": "150 Year Celebration" }
+      ]
+    },
+    {
+      "id": "packaging",
+      "title": "Packaging Design",
+      "projects": [
+        { "slug": "blunuts-black-raisin", "title": "Blunuts Black Raisin" },
+        { "slug": "lg-scalgo", "title": "LG ScaLGo" },
+        { "slug": "lemona-can", "title": "Lemona Can" }
+      ]
+    },
+    {
+      "id": "marketing",
+      "title": "Graphic Design & Marketing Creatives",
+      "projects": [
+        { "slug": "creative-selects", "title": "Creative Selects" },
+        { "slug": "airwave-4d", "title": "Airwave 4D" },
+        { "slug": "come-to-australia", "title": "Come to Australia" }
+      ]
+    },
+    {
+      "id": "mockups",
+      "title": "3D Mockups & Product Presentation",
+      "projects": [
+        { "slug": "bull-short", "title": "Bull Short" },
+        { "slug": "chatpata-kurkure", "title": "Chatpata Kurkure" },
+        { "slug": "green-saunf", "title": "Green Saunf" }
+      ]
+    }
+  ],
+  "videos": [
+    {
+      "slug": "sat-score-boost",
+      "title": "Digital SAT Score Boost #1",
+      "subtitle": "Graphical Calculator Secrets",
+      "kind": "Video editing"
+    },
+    {
+      "slug": "ugc-content",
+      "title": "UGC Content",
+      "subtitle": "Short-form creator video",
+      "kind": "UGC & short-form"
+    }
+  ]
+}
